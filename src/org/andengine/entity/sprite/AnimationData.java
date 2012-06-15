@@ -203,9 +203,9 @@ public class AnimationData implements IAnimationData {
 	public void set(final long[] pFrameDurations, final int pFirstFrameIndex, final int pLastFrameIndex, final int pLoopCount) {
 		this.set(pFrameDurations, (pLastFrameIndex - pFirstFrameIndex) + 1, null, pFirstFrameIndex, pLoopCount);
 
-		if((pFirstFrameIndex + 1) > pLastFrameIndex) {
-			throw new IllegalArgumentException("An animation needs at least two tiles to animate between.");
-		}
+//		if((pFirstFrameIndex + 1) > pLastFrameIndex) {
+//			throw new IllegalArgumentException("An animation needs at least two tiles to animate between.");
+//		}
 	}
 
 	/**
