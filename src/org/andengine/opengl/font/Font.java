@@ -287,7 +287,7 @@ public class Font implements IFont {
 				}
 				lettersPendingToBeDrawnToTexture.clear();
 
-				System.gc();
+				//System.gc();
 			}
 		}
 	}

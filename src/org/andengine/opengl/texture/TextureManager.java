@@ -279,7 +279,7 @@ public class TextureManager {
 
 		/* Finally invoke the GC if anything has changed. */
 		if((texturesToBeLoadedCount > 0) || (texturesToBeUnloadedCount > 0)) {
-			System.gc();
+			//System.gc();
 		}
 	}
 
