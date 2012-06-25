@@ -19,11 +19,11 @@ public class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
 
 	private static final int[] BUFFER = new int[1];
 
-	private static final int RED_SIZE = 5;
-	private static final int GREEN_SIZE = 6;
-	private static final int BLUE_SIZE = 5;
-	private static final int DEPTH_SIZE = 0;
-	private static final int ALPHA_SIZE = 0;
+	private static final int RED_SIZE = 8;
+	private static final int GREEN_SIZE = 8;
+	private static final int BLUE_SIZE = 8;
+	private static final int DEPTH_SIZE = 16;
+	private static final int ALPHA_SIZE = 8;
 	private static final int STENCIL_SIZE = 0;
 
 	private static final int MULTISAMPLE_COUNT = 2; // TODO Could be made variable?
@@ -141,6 +141,12 @@ public class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
 		} catch (final IllegalArgumentException e) {
 
 		}
+		
+    try {
+      return this.chooseConfig(pEGL, pEGLDisplay, ConfigChooserMatcher.LOOSE);
+    } catch (final IllegalArgumentException e) {
+
+    }
 
 		try {
 			return this.chooseConfig(pEGL, pEGLDisplay, ConfigChooserMatcher.LOOSE_STENCIL);
@@ -257,6 +263,17 @@ public class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
 				return false;
 			}
 		},
+		LOOSE() {
+      @Override
+      public boolean matches(final int pRedSize, final int pGreenSize, final int pBlueSize, final int pAlphaSize, final int pDepthSize, final int pStencilSize) {
+        if(pDepthSize >= ConfigChooser.DEPTH_SIZE && pStencilSize >= ConfigChooser.STENCIL_SIZE) {
+          if(pRedSize >= ConfigChooser.RED_SIZE && pGreenSize >= ConfigChooser.GREEN_SIZE && pBlueSize >= ConfigChooser.BLUE_SIZE && pAlphaSize >= ConfigChooser.ALPHA_SIZE) {
+            return true;
+          }
+        }
+        return false;
+      }
+    },
 		LOOSE_STENCIL() {
 			@Override
 			public boolean matches(final int pRedSize, final int pGreenSize, final int pBlueSize, final int pAlphaSize, final int pDepthSize, final int pStencilSize) {
