@@ -2,6 +2,7 @@ package org.andengine.opengl.shader;
 
 import java.util.HashMap;
 
+import org.andengine.entity.IEntity;
 import org.andengine.opengl.shader.constants.ShaderProgramConstants;
 import org.andengine.opengl.shader.exception.ShaderProgramCompileException;
 import org.andengine.opengl.shader.exception.ShaderProgramException;
@@ -117,7 +118,7 @@ public class ShaderProgram {
 	// Methods
 	// ===========================================================
 
-	public void bind(final GLState pGLState, final VertexBufferObjectAttributes pVertexBufferObjectAttributes) throws ShaderProgramException {
+	public void bind(final IEntity entity, final GLState pGLState, final VertexBufferObjectAttributes pVertexBufferObjectAttributes) throws ShaderProgramException {
 		if(!this.mCompiled) {
 			this.compile(pGLState);
 		}

@@ -188,7 +188,7 @@ public class SpriteBatch extends Shape {
 
 		this.mTexture.bind(pGLState);
 
-		this.mSpriteBatchVertexBufferObject.bind(pGLState, this.mShaderProgram);
+		this.mSpriteBatchVertexBufferObject.bind(this, pGLState, this.mShaderProgram);
 	}
 
 	@Override

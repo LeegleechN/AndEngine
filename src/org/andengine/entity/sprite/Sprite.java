@@ -183,7 +183,7 @@ public class Sprite extends RectangularShape {
 
 		this.getTextureRegion().getTexture().bind(pGLState);
 
-		this.mSpriteVertexBufferObject.bind(pGLState, this.mShaderProgram);
+		this.mSpriteVertexBufferObject.bind(this, pGLState, this.mShaderProgram);
 	}
 
 	@Override

@@ -94,7 +94,7 @@ public class TextureWarmUpVertexBufferObject extends VertexBufferObject {
 
 	public void warmup(final GLState pGLState, final ITexture pTexture) {
 		pTexture.bind(pGLState);
-		this.bind(pGLState, PositionTextureCoordinatesShaderProgram.getInstance());
+		this.bind(null, pGLState, PositionTextureCoordinatesShaderProgram.getInstance());
 
 		pGLState.pushModelViewGLMatrix();
 		{

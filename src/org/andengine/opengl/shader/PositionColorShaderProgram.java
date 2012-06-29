@@ -1,5 +1,6 @@
 package org.andengine.opengl.shader;
 
+import org.andengine.entity.IEntity;
 import org.andengine.opengl.shader.constants.ShaderProgramConstants;
 import org.andengine.opengl.shader.exception.ShaderProgramLinkException;
 import org.andengine.opengl.util.GLState;
@@ -77,10 +78,10 @@ public class PositionColorShaderProgram extends ShaderProgram {
 	}
 
 	@Override
-	public void bind(final GLState pGLState, final VertexBufferObjectAttributes pVertexBufferObjectAttributes) {
+	public void bind(final IEntity entity, final GLState pGLState, final VertexBufferObjectAttributes pVertexBufferObjectAttributes) {
 		GLES20.glDisableVertexAttribArray(ShaderProgramConstants.ATTRIBUTE_TEXTURECOORDINATES_LOCATION);
 
-		super.bind(pGLState, pVertexBufferObjectAttributes);
+		super.bind(entity, pGLState, pVertexBufferObjectAttributes);
 
 		GLES20.glUniformMatrix4fv(PositionColorShaderProgram.sUniformModelViewPositionMatrixLocation, 1, false, pGLState.getModelViewProjectionGLMatrix(), 0);
 	}

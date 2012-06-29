@@ -310,7 +310,7 @@ public class Text extends RectangularShape {
 
 		this.mFont.getTexture().bind(pGLState);
 
-		this.mTextVertexBufferObject.bind(pGLState, this.mShaderProgram);
+		this.mTextVertexBufferObject.bind(this, pGLState, this.mShaderProgram);
 	}
 
 	@Override

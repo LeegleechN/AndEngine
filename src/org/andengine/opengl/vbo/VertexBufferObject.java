@@ -3,6 +3,7 @@ package org.andengine.opengl.vbo;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
+import org.andengine.entity.IEntity;
 import org.andengine.opengl.shader.ShaderProgram;
 import org.andengine.opengl.util.BufferUtils;
 import org.andengine.opengl.util.GLState;
@@ -156,10 +157,10 @@ public abstract class VertexBufferObject implements IVertexBufferObject {
 	}
 
 	@Override
-	public void bind(final GLState pGLState, final ShaderProgram pShaderProgram) {
+	public void bind(final IEntity entity, final GLState pGLState, final ShaderProgram pShaderProgram) {
 		this.bind(pGLState);
 
-		pShaderProgram.bind(pGLState, this.mVertexBufferObjectAttributes);
+		pShaderProgram.bind(entity, pGLState, this.mVertexBufferObjectAttributes);
 	}
 
 

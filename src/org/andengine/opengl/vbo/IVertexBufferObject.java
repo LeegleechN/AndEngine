@@ -2,6 +2,7 @@ package org.andengine.opengl.vbo;
 
 import java.nio.ByteBuffer;
 
+import org.andengine.entity.IEntity;
 import org.andengine.opengl.shader.ShaderProgram;
 import org.andengine.opengl.util.GLState;
 import org.andengine.util.IDisposable;
@@ -62,7 +63,7 @@ public interface IVertexBufferObject extends IDisposable {
 	public int getGPUMemoryByteSize();
 
 	public void bind(final GLState pGLState);
-	public void bind(final GLState pGLState, final ShaderProgram pShaderProgram);
+	public void bind(final IEntity entity, final GLState pGLState, final ShaderProgram pShaderProgram);
 	public void unbind(final GLState pGLState, final ShaderProgram pShaderProgram);
 
 	public VertexBufferObjectManager getVertexBufferObjectManager();

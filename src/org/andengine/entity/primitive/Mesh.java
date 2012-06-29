@@ -107,7 +107,7 @@ public class Mesh extends Shape {
 	protected void preDraw(final GLState pGLState, final Camera pCamera) {
 		super.preDraw(pGLState, pCamera);
 
-		this.mMeshVertexBufferObject.bind(pGLState, this.mShaderProgram);
+		this.mMeshVertexBufferObject.bind(this, pGLState, this.mShaderProgram);
 	}
 
 	@Override

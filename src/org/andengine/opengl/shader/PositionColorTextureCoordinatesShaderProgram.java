@@ -1,5 +1,6 @@
 package org.andengine.opengl.shader;
 
+import org.andengine.entity.IEntity;
 import org.andengine.opengl.shader.constants.ShaderProgramConstants;
 import org.andengine.opengl.shader.exception.ShaderProgramLinkException;
 import org.andengine.opengl.util.GLState;
@@ -85,8 +86,8 @@ public class PositionColorTextureCoordinatesShaderProgram extends ShaderProgram 
 	}
 
 	@Override
-	public void bind(final GLState pGLState, final VertexBufferObjectAttributes pVertexBufferObjectAttributes) {
-		super.bind(pGLState, pVertexBufferObjectAttributes);
+	public void bind(final IEntity entity, final GLState pGLState, final VertexBufferObjectAttributes pVertexBufferObjectAttributes) {
+		super.bind(entity, pGLState, pVertexBufferObjectAttributes);
 
 		GLES20.glUniformMatrix4fv(PositionColorTextureCoordinatesShaderProgram.sUniformModelViewPositionMatrixLocation, 1, false, pGLState.getModelViewProjectionGLMatrix(), 0);
 		GLES20.glUniform1i(PositionColorTextureCoordinatesShaderProgram.sUniformTexture0Location, 0);

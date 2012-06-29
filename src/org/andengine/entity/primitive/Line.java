@@ -228,7 +228,7 @@ public class Line extends Shape {
 
 		pGLState.lineWidth(this.mLineWidth);
 
-		this.mLineVertexBufferObject.bind(pGLState, this.mShaderProgram);
+		this.mLineVertexBufferObject.bind(this, pGLState, this.mShaderProgram);
 	}
 
 	@Override

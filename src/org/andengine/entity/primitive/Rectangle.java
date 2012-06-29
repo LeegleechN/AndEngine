@@ -92,7 +92,7 @@ public class Rectangle extends RectangularShape {
 	protected void preDraw(final GLState pGLState, final Camera pCamera) {
 		super.preDraw(pGLState, pCamera);
 
-		this.mRectangleVertexBufferObject.bind(pGLState, this.mShaderProgram);
+		this.mRectangleVertexBufferObject.bind(this, pGLState, this.mShaderProgram);
 	}
 
 	@Override
